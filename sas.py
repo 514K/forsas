@@ -1,7 +1,8 @@
+import math
 P = int()
 Q = int()
 sup = int()
-N = float(0)
+N = int(0)
 seriesK = []
 H = float(0)
 P = int(input(">>>insert P:\n>>>"))
@@ -17,7 +18,7 @@ for n in range(sup):            #here sum N
         N += k
         seriesK.append(k)
     if n >= 1 and n <= (Q - 1):
-        k = 1 + 2 * ((P * n)/Q)
+        k = 1 + 2 * math.ceil((P * n)/Q)
         N += k
         seriesK.append(k)
     if n == Q:
@@ -25,7 +26,7 @@ for n in range(sup):            #here sum N
         N += k
         seriesK.append(k)
     if n >= (Q + 1) and n <= (sup):
-        k = 1 + 2 * (2 * P - (P * n)/Q)
+        k = 1 + 2 * math.ceil(2 * P - (P * n)/Q)
         N += k
         seriesK.append(k)
 for n in range(sup):
