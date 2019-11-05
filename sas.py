@@ -33,6 +33,8 @@ for n in range(sup+1):
         N += k
         seriesK.append(k)
 for n in range(2 * Q):
+    l = ( (1 - n/Q)*(1 - n/Q) - (seriesK[n]/P)*(seriesK[n]/P) )*( (1 - n/Q)*(1 - n/Q) - (seriesK[n]/P)*(seriesK[n]/P) )
+    print("n-ый член для Н =", l, "n =", n)
     H += ( (1 - n/Q)*(1 - n/Q) - (seriesK[n]/P)*(seriesK[n]/P) )*( (1 - n/Q)*(1 - n/Q) - (seriesK[n]/P)*(seriesK[n]/P) )
 
 
