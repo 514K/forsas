@@ -3,11 +3,13 @@ Q = int()
 sup = int()
 N = float(0)
 seriesK = []
-
 H = float(0)
-
 P = int(input(">>>insert P:\n>>>"))
 Q = int(input(">>>insert Q:\n>>>"))
+
+coord1 = (1 / (2 * Q), 1 / (2 * Q))
+coord2 = (1 / (2 * P), - (1 / (2 * P)))
+#я так до конца и не понял зачем нам нужны эти координаты, но пусть будут
 sup = int(2 * Q - 1)            #supremum series
 for n in range(sup):            #here sum N 
     if n == 0:
@@ -33,3 +35,4 @@ print(H)
 print(P, Q, sup, N)
 print(seriesK) 
 print(2*P*Q, N)
+print(coord1, coord2)
