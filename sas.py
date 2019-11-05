@@ -1,8 +1,8 @@
 import math
-P = int()
-Q = int()
+P = float()
+Q = float()
 sup = int()
-N = int(0)
+N = float(0)
 seriesK = []
 H = float(0)
 P = int(input(">>>insert P:\n>>>"))
@@ -12,13 +12,15 @@ coord1 = (1 / (2 * Q), 1 / (2 * Q))
 coord2 = (1 / (2 * P), - (1 / (2 * P)))
 #я так до конца и не понял зачем нам нужны эти координаты, но пусть будут
 sup = int(2 * Q - 1)            #supremum series
-for n in range(sup):            #here sum N 
+for n in range(sup+1): 
+    # print(n)           #here sum N 
     if n == 0:
         k = 1
         N += k
         seriesK.append(k)
     if n >= 1 and n <= (Q - 1):
-        k = 1 + 2 * math.ceil((P * n)/Q)
+        k = 1 + 2 * (math.ceil((P * n) / Q) - 1)
+        # print(math.ceil((P * n) / Q), k)
         N += k
         seriesK.append(k)
     if n == Q:
@@ -26,14 +28,18 @@ for n in range(sup):            #here sum N
         N += k
         seriesK.append(k)
     if n >= (Q + 1) and n <= (sup):
-        k = 1 + 2 * math.ceil(2 * P - (P * n)/Q)
+        k = 1 + 2 * (math.ceil(2 * P - (P * n)/Q) - 1)
+        # print(math.ceil(2 * P - (P * n)/Q), k)
         N += k
         seriesK.append(k)
-for n in range(sup):
-    for k in seriesK:
-        H += (9 / N) * ( ((1 - n / Q) ** 2) - ((k / P) ** 2) ) ** 2
+for n in range(2 * Q):
+    H += ( (1 - n/Q)*(1 - n/Q) - (seriesK[n]/P)*(seriesK[n]/P) )*( (1 - n/Q)*(1 - n/Q) - (seriesK[n]/P)*(seriesK[n]/P) )
+
+
+H = (9 / N) * H
 print(H)
 print(P, Q, sup, N)
 print(seriesK) 
-print(2*P*Q, N)
-print(coord1, coord2)
+#print(2*P*Q, N)
+#print(coord1, coord2)
+#input()
