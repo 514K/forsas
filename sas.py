@@ -37,9 +37,9 @@ for n in range(2 * Q):
 
 
 H = (9 / N) * H
-print(H)
-print(P, Q, sup, N)
-print(seriesK) 
-print(2*P*Q, N)
+print("H =", H)
+print("P =", P,"Q =", Q,"n максимально достигает 2Q-1 =", sup)
+print("Список всех к для Bn:", seriesK) 
+print("2PQ =", 2*P*Q,"N =", N)
 print(coord1, coord2)
 input()
